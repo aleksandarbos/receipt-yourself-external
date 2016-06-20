@@ -1,0 +1,15 @@
+# Created by .ignore support plugin (hsz.mobi)
+### Example user template template
+### Example user template
+
+# IntelliJ project files
+.idea
+*.iml
+out
+gen
+.gitignore
+lib/
+receipt-yourself-external.iml
+receipt-yourself-external.ipr
+receipt-yourself-external.iws
+tmp/
