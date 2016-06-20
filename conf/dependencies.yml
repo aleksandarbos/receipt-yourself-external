@@ -2,4 +2,5 @@
 
 require:
     - play -> play 1.4.1
+    - play -> crud
     - play -> secure
