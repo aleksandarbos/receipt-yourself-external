@@ -1,1 +1,1 @@
-web: play run --http.port=$PORT $PLAY_OPTS -Dplay.evolutions.db.default.autoApplyDowns=true
+web: play run –%$FRAMEWORKID –http.port=$PORT -DusePrecompiled=$USEPRECOMPILED -DDATABASE_URL=mem
