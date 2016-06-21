@@ -1,1 +1,1 @@
-web: play run -DDATABASE_URL=mem 
+web: play run
