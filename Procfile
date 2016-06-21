@@ -1,1 +1,1 @@
-web: play run –%$FRAMEWORKID –http.port=$PORT -DusePrecompiled=$USEPRECOMPILED -DDATABASE_URL=mem 
+web: play run -DDATABASE_URL=mem 
