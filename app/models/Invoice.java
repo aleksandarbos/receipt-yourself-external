@@ -1,10 +1,10 @@
 package models;
 
-import controllers.CRUD;
 import play.data.validation.Required;
 import play.db.jpa.Model;
 
 import javax.persistence.Entity;
+import javax.persistence.PrePersist;
 import java.util.Date;
 
 /**
@@ -28,10 +28,14 @@ public class Invoice extends Model {
     @Required
     public Date paymentDeadline;
 
-    @CRUD.Hidden
-    public Date issuanceDate = new Date();
+    public Date issuanceDate;
 
     public String toString() {
         return "Invoice id: " + this.invoiceNumber;
+    }
+
+    @PrePersist
+    public void prePersist() {
+        this.issuanceDate = new Date();
     }
 }
