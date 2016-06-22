@@ -19,7 +19,6 @@ public class Invoice extends Model {
     @Required
     public long invoiceNumber;
 
-    @Required
     public Number amount;
 
     public Number remainingAmount;
