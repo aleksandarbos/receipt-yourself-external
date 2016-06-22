@@ -4,7 +4,7 @@ import play.data.validation.Required;
 import play.db.jpa.Model;
 
 import javax.persistence.Entity;
-import javax.persistence.PrePersist;
+import javax.persistence.ManyToOne;
 import java.util.Date;
 
 /**
@@ -14,6 +14,7 @@ import java.util.Date;
 public class Invoice extends Model {
 
     @Required
+    @ManyToOne
     public BusinessPartner businessPartner;
 
     @Required
@@ -34,8 +35,4 @@ public class Invoice extends Model {
         return "Invoice id: " + this.invoiceNumber;
     }
 
-    @PrePersist
-    public void prePersist() {
-        this.issuanceDate = new Date();
-    }
 }

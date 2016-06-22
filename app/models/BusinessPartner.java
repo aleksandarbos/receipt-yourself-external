@@ -5,6 +5,8 @@ import play.db.jpa.Model;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import java.util.Collection;
 
 /**
  * Created by aleksandar on 20.6.16..
@@ -23,6 +25,9 @@ public class BusinessPartner extends Model {
 
     @ManyToOne
     public ContactCard contactCard;
+
+    @OneToMany
+    public Collection<Invoice> invoices;
 
     public String toString() {
         return this.name;
