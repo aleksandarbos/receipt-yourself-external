@@ -23,14 +23,13 @@ public class Invoice extends Model {
 
     public Number remainingAmount;
 
-    @CRUD.Hidden
-    public Date issuanceDate = new Date();
-
     public Date circulationDate;
 
     @Required
     public Date paymentDeadline;
 
+    @CRUD.Hidden
+    public Date issuanceDate = new Date();
 
     public String toString() {
         return "Invoice id: " + this.invoiceNumber;
