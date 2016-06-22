@@ -31,4 +31,8 @@ public class Invoice extends Model {
     @Required
     public Date payment_deadline;
 
+
+    public String toString() {
+        return "Invoice id: " + this.invoiceNumber;
+    }
 }
