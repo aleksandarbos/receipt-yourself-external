@@ -32,7 +32,7 @@ public class Invoice extends Model {
     public Date issuanceDate;
 
     public String toString() {
-        return "Invoice id: " + this.invoiceNumber;
+        return "Invoice id: " + this.invoiceNumber + ", by company: " + businessPartner.name;
     }
 
 }
