@@ -1,5 +1,6 @@
 package models;
 
+import controllers.CRUD;
 import play.data.validation.Required;
 import play.db.jpa.Model;
 
@@ -23,13 +24,13 @@ public class Invoice extends Model {
 
     public Number remainingAmount;
 
-    @Required
-    public Date issuance_date;
+    @CRUD.Hidden
+    public Date issuanceDate = new Date();
 
-    public Date circulation_date;
+    public Date circulationDate;
 
     @Required
-    public Date payment_deadline;
+    public Date paymentDeadline;
 
 
     public String toString() {
