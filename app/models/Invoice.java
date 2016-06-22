@@ -1,6 +1,7 @@
 package models;
 
 import play.data.validation.Required;
+import play.data.validation.Unique;
 import play.db.jpa.Model;
 
 import javax.persistence.Entity;
@@ -18,6 +19,7 @@ public class Invoice extends Model {
     public BusinessPartner businessPartner;
 
     @Required
+    @Unique
     public long invoiceNumber;
 
     public Number amount;
@@ -32,7 +34,7 @@ public class Invoice extends Model {
     public Date issuanceDate;
 
     public String toString() {
-        return "Invoice id: " + this.invoiceNumber + ", by company: " + businessPartner.name;
+        return "Invoice id: " + this.id + ", invoice num: " + this.invoiceNumber + ", by company: " + businessPartner.name;
     }
 
 }
