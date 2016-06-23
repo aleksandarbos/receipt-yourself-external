@@ -4,3 +4,4 @@ require:
     - play 1.4.1
     - play -> crud
     - play -> secure
+    - com.fasterxml.jackson.core -> jackson-databind 2.7.3

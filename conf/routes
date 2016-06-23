@@ -3,7 +3,7 @@
 # ~~~~
 
 # Home page
-GET     /                                       module:crud
+GET     /                                       IssueInvoice.show
 
 # Ignore favicon requests
 GET     /favicon.ico                            404
@@ -15,4 +15,4 @@ GET     /admin                                  module:crud
 GET     /public/                                staticDir:public
 
 # Catch all
-*       /{controller}/{action}                  {controller}.{action}
+GET     /api/{controller}/{action}                  {controller}.{action}

@@ -1,5 +1,7 @@
 package models;
 
+import com.fasterxml.jackson.annotation.JsonGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import play.data.validation.Required;
 import play.data.validation.Unique;
 import play.db.jpa.Model;
@@ -14,6 +16,7 @@ import java.util.Date;
 @Entity
 public class Invoice extends Model {
 
+    @JsonIgnore
     @Required
     @ManyToOne
     public BusinessPartner businessPartner;
@@ -22,19 +25,24 @@ public class Invoice extends Model {
     @Unique
     public long invoiceNumber;
 
-    public Number amount;
-
-    public Number remainingAmount;
-
-    public Date circulationDate;
-
     @Required
     public Date paymentDeadline;
 
-    public Date issuanceDate;
+    public int amount;
+
+    public int remainingAmount;
+
+    public Date circulationDate;
+
+    public Date issuanceDate = new Date();
 
     public String toString() {
         return "Invoice id: " + this.id + ", invoice num: " + this.invoiceNumber + ", by company: " + businessPartner.name;
+    }
+
+    @JsonGetter("businessPartner.uid")
+    public String getBusinessPartnerId() {
+        return businessPartner.uid;
     }
 
 }

@@ -1,4 +1,4 @@
-package controllers;
+package controllers.crud;
 
 import play.*;
 import play.mvc.*;
