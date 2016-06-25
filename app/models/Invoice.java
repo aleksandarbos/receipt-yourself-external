@@ -1,6 +1,6 @@
 package models;
 
-import com.fasterxml.jackson.annotation.JsonGetter;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import play.data.validation.Required;
 import play.data.validation.Unique;
@@ -13,6 +13,7 @@ import java.util.Date;
 /**
  * Created by aleksandar on 22.6.16..
  */
+@JsonIgnoreProperties({"persistent", "entityId"})
 @Entity
 public class Invoice extends Model {
 
@@ -23,12 +24,14 @@ public class Invoice extends Model {
 
     @Required
     @Unique
-    public long number;
+    public long number;	
 
     @Required
     public Date payment_deadline;
 
     public int payment_amount;
+    @JsonIgnore
+    public boolean accept_invoice = false;
 
     public int remaining_amount;
 
@@ -38,11 +41,6 @@ public class Invoice extends Model {
 
     public String toString() {
         return "Invoice id: " + this.id + ", invoice num: " + this.number + ", by company: " + businessPartner.name;
-    }
-
-    @JsonGetter("businessPartner.uid")
-    public String getBusinessPartnerId() {
-        return businessPartner.uid;
     }
 
 }

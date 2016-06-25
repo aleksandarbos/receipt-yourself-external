@@ -10,7 +10,7 @@
     </tr>
     #{list items: invoices, as:'invoice'}
         <tr>
-            #{form @IssueInvoice.getInvoiceById()}
+            #{form @BusinessRequest.sendInvoiceById()}
                 <td><input type="hidden" name="id" value="${invoice.id}"/></td>
                 <td>${invoice}</td>
                 <td><input type="submit" value="Issue Invoice!"/></td>

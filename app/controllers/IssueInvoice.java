@@ -17,10 +17,4 @@ public class IssueInvoice extends Controller {
         render(invoices);
     }
 
-    public static void getInvoiceById(Long id) throws IOException {
-        Invoice invoice = Invoice.findById(id);
-        ObjectMapper objectMapper = new ObjectMapper();
-        renderText(objectMapper.writeValueAsString(invoice));
-    }
-
 }

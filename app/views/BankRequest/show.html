@@ -1,0 +1,21 @@
+#{extends 'main.html'/}
+#{set title:'Receipt-Yourself-Bank cooperation.' /}
+
+<h3>Bank requests</h3>
+<table border="1">
+    <tr>
+        <th>Send request</th>
+        <th></th>
+        <th></th>
+    </tr>
+#{list items: banks, as:'bank'}
+    <tr>
+        #{form @BankRequest.sendRequestById()}
+            <td><input type="hidden" name="id" value="${bank.id}"/></td>
+            <td>${bank}</td>
+            <td><input type="submit" value="Send cooperation request!"/></td>
+        #{/form}
+    </tr>
+#{/list}
+</table>
+<hr/>
