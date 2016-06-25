@@ -1,7 +1,6 @@
 package models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import net.sf.oval.constraint.MinLength;
 import play.data.validation.Email;
 import play.data.validation.Required;
