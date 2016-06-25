@@ -24,7 +24,7 @@ public class BusinessPartner extends Model {
     public String uid;
 
     @ManyToOne
-    public ContactCard contactCard;
+    public ContactCard contact_card;
 
     @OneToMany
     public Collection<Invoice> invoices;

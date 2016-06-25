@@ -23,21 +23,21 @@ public class Invoice extends Model {
 
     @Required
     @Unique
-    public long invoiceNumber;
+    public long number;
 
     @Required
-    public Date paymentDeadline;
+    public Date payment_deadline;
 
-    public int amount;
+    public int payment_amount;
 
-    public int remainingAmount;
+    public int remaining_amount;
 
-    public Date circulationDate;
+    public Date circulation_date;
 
-    public Date issuanceDate = new Date();
+    public Date issuance_date = new Date();
 
     public String toString() {
-        return "Invoice id: " + this.id + ", invoice num: " + this.invoiceNumber + ", by company: " + businessPartner.name;
+        return "Invoice id: " + this.id + ", invoice num: " + this.number + ", by company: " + businessPartner.name;
     }
 
     @JsonGetter("businessPartner.uid")

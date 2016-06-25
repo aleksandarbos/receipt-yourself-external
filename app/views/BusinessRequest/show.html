@@ -1,0 +1,21 @@
+#{extends 'main.html'/}
+#{set title:'Receipt-Yourself-External Issue Invoice' /}
+
+<h3>Business partner requests</h3>
+<table border="1">
+    <tr>
+        <th>Send request</th>
+        <th></th>
+        <th></th>
+    </tr>
+#{list items: businessPartners, as:'businessPartner'}
+    <tr>
+        #{form @BusinessRequest.sendRequestById()}
+            <td><input type="hidden" name="id" value="${businessPartner.id}"/></td>
+            <td>${businessPartner}</td>
+            <td><input type="submit" value="Send cooperation request!"/></td>
+        #{/form}
+    </tr>
+#{/list}
+</table>
+<hr/>

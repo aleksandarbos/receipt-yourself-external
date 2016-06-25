@@ -1,5 +1,6 @@
 package models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import net.sf.oval.constraint.MinLength;
 import play.data.validation.Email;
 import play.data.validation.Required;
@@ -19,11 +20,13 @@ public class ContactCard extends Model {
     @Required
     @MinLength(8)
     @Unique
-    public int PIB;
+    public int pib;
 
+    @JsonIgnore
     @OneToMany
-    public List<BusinessPartner> businessPartner;
+    public List<BusinessPartner> business_partner;
 
+    @JsonIgnore
     @OneToMany
     public List<Bank> bank;
 
@@ -49,6 +52,6 @@ public class ContactCard extends Model {
     public String website;
 
     public String toString() {
-        return "CC-" + ((!businessPartner.isEmpty()) ? "BP: " + businessPartner.get(0).name : "BA: " + bank.get(0).name);
+        return "CC-" + ((!business_partner.isEmpty()) ? "BP: " + business_partner.get(0).name : "BA: " + bank.get(0).name);
     }
 }

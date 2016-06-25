@@ -3,7 +3,7 @@
 # ~~~~
 
 # Home page
-GET     /                                       IssueInvoice.show
+GET     /                                       Application.index
 
 # Ignore favicon requests
 GET     /favicon.ico                            404

@@ -11,7 +11,7 @@
     #{list items: invoices, as:'invoice'}
         <tr>
             #{form @IssueInvoice.getInvoiceById()}
-                <td><input type="hidden" name="invoiceId" value="${invoice.id}"/></td>
+                <td><input type="hidden" name="id" value="${invoice.id}"/></td>
                 <td>${invoice}</td>
                 <td><input type="submit" value="Issue Invoice!"/></td>
             #{/form}

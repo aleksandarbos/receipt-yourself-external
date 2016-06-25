@@ -5,3 +5,4 @@ require:
     - play -> crud
     - play -> secure
     - com.fasterxml.jackson.core -> jackson-databind 2.7.3
+    - javax.ws.rs -> javax.ws.rs-api 2.0
