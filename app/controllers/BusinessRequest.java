@@ -28,7 +28,7 @@ public class BusinessRequest extends Controller {
         map.put("basicInfo", basicInfo);
         map.put("contactInfo", contactInfo);
 
-        HttpInvoker.sendPOST("http://localhost:3000/api/businesspartners/recievedata", map);
+        HttpInvoker.sendPOST("http://receipt-yourself.heroku.com/api/businesspartners/recievedata", map);
     }
 
 }
