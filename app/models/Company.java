@@ -19,4 +19,11 @@ public class Company extends Model {
     @OneToMany
     public List<CompanyAccount> company_accounts;
 
+    @Override
+    public String toString() {
+        return "Company{" +
+                "name='" + name + '\'' +
+                ", company_accounts=" + company_accounts +
+                '}';
+    }
 }

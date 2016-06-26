@@ -36,6 +36,9 @@ public class BusinessPartner extends Model {
     public List<DailyBankStatement> daily_statements;
 
     @OneToMany
+    public List<BusinessPartnerAccount> business_partner_accounts;
+
+    @OneToMany
     public Collection<InputInvoice> invoices;
 
     public String toString() {

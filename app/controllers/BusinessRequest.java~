@@ -2,7 +2,7 @@ package controllers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import models.BusinessPartner;
-import models.InputInvoice;
+import models.Invoice;
 import play.mvc.Controller;
 
 import java.util.Collection;
@@ -15,8 +15,7 @@ public class BusinessRequest extends Controller {
 
     public static void show() {
         Collection<BusinessPartner> businessPartners = BusinessPartner.findAll();
-        Collection<InputInvoice> invoices = InputInvoice.findAll();
-        render(businessPartners, invoices);
+        render(businessPartners);
     }
 
     public static void sendRequestById(Long id) throws Exception {
@@ -36,7 +35,7 @@ public class BusinessRequest extends Controller {
 
     public static void sendInvoiceById(Long id) throws Exception {
         HashMap<String, String> map = new HashMap<String, String>();
-        InputInvoice invoice = InputInvoice.findById(id);
+        Invoice invoice = Invoice.findById(id);
         ObjectMapper om = new ObjectMapper();
 
         String basicInfo = om.writeValueAsString(invoice);

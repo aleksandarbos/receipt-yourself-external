@@ -19,3 +19,21 @@
 #{/list}
 </table>
 <hr/>
+<h3>Business partner invoices</h3>
+<table border="1">
+    <tr>
+        <th>InputInvoices</th>
+        <th></th>
+        <th></th>
+    </tr>
+#{list items: invoices, as:'invoice'}
+    <tr>
+        #{form @controllers.BusinessRequest.sendInvoiceById()}
+            <td><input type="hidden" name="id" value="${invoice.id}"/></td>
+            <td>${invoice}</td>
+            <td><input type="submit" value="Issue InputInvoice!"/></td>
+        #{/form}
+    </tr>
+#{/list}
+</table>
+<hr/>
