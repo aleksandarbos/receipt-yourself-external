@@ -10,7 +10,7 @@
     </tr>
 #{list items: businessPartners, as:'businessPartner'}
     <tr>
-        #{form @BusinessRequest.sendRequestById()}
+        #{form @controllers.BusinessRequest.sendRequestById()}
             <td><input type="hidden" name="id" value="${businessPartner.id}"/></td>
             <td>${businessPartner}</td>
             <td><input type="submit" value="Send cooperation request!"/></td>

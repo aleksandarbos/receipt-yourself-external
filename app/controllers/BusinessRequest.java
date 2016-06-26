@@ -1,8 +1,9 @@
 package controllers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import controllers.HttpInvoker;
 import models.BusinessPartner;
-import models.Invoice;
+import models.InputInvoice;
 import play.mvc.Controller;
 
 import java.util.Collection;
@@ -29,13 +30,13 @@ public class BusinessRequest extends Controller {
         map.put("basicInfo", basicInfo);
         map.put("contactInfo", contactInfo);
 
-        HttpInvoker.sendPOST("http://receipt-yourself.heroku.com/api/businesspartners/receivedata", map);
-	    //HttpInvoker.sendPOST("http://localhost:3000/api/businesspartners/receivedata", map);
+        //HttpInvoker.sendPOST("http://receipt-yourself.heroku.com/api/businesspartners/receivedata", map);
+	HttpInvoker.sendPOST("http://localhost:3000/api/businesspartners/receivedata", map);
     }
 
     public static void sendInvoiceById(Long id) throws Exception {
         HashMap<String, String> map = new HashMap<String, String>();
-        Invoice invoice = Invoice.findById(id);
+        InputInvoice invoice = InputInvoice.findById(id);
         ObjectMapper om = new ObjectMapper();
 
         String basicInfo = om.writeValueAsString(invoice);
@@ -44,8 +45,8 @@ public class BusinessRequest extends Controller {
         map.put("invoiceInfo", basicInfo);
         map.put("businessPartnerInfo", contactInfo);
 
-        HttpInvoker.sendPOST("http://receipt-yourself.heroku.com/api/businesspartners/receivedata", map);
-        //HttpInvoker.sendPOST("http://localhost:3000/api/businesspartners/acceptinvoice", map);
+        //HttpInvoker.sendPOST("http://receipt-yourself.heroku.com/api/businesspartners/receivedata", map);
+        HttpInvoker.sendPOST("http://localhost:3000/api/businesspartners/acceptinvoice", map);
     }
 
 }

@@ -15,7 +15,7 @@ import java.util.Date;
  */
 @JsonIgnoreProperties({"persistent", "entityId"})
 @Entity
-public class Invoice extends Model {
+public class InputInvoice extends Model {
 
     @JsonIgnore
     @Required
@@ -40,7 +40,7 @@ public class Invoice extends Model {
     public Date issuance_date = new Date();
 
     public String toString() {
-        return "Invoice id: " + this.id + ", invoice num: " + this.number + ", by company: " + businessPartner.name;
+        return "InputInvoice id: " + this.id + ", invoice num: " + this.number + ", by company: " + businessPartner.name;
     }
 
 }
