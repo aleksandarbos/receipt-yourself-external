@@ -30,8 +30,8 @@ public class BusinessRequest extends Controller {
         map.put("basicInfo", basicInfo);
         map.put("contactInfo", contactInfo);
 
-        //HttpInvoker.sendPOST("http://receipt-yourself.heroku.com/api/businesspartners/receivedata", map);
-	HttpInvoker.sendPOST("http://localhost:3000/api/businesspartners/receivedata", map);
+        HttpInvoker.sendPOST("http://receipt-yourself.heroku.com/api/businesspartners/receivedata", map);
+	//HttpInvoker.sendPOST("http://localhost:3000/api/businesspartners/receivedata", map);
     }
 
     public static void sendInvoiceById(Long id) throws Exception {
@@ -45,8 +45,8 @@ public class BusinessRequest extends Controller {
         map.put("invoiceInfo", basicInfo);
         map.put("businessPartnerInfo", contactInfo);
 
-        //HttpInvoker.sendPOST("http://receipt-yourself.heroku.com/api/businesspartners/receivedata", map);
-        HttpInvoker.sendPOST("http://localhost:3000/api/businesspartners/acceptinvoice", map);
+        HttpInvoker.sendPOST("http://receipt-yourself.heroku.com/api/businesspartners/receivedata", map);
+        //HttpInvoker.sendPOST("http://localhost:3000/api/businesspartners/acceptinvoice", map);
     }
 
 }
