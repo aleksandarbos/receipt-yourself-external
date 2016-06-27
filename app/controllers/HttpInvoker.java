@@ -1,13 +1,10 @@
 package controllers;
 
-import javax.net.ssl.HttpsURLConnection;
-import javax.net.ssl.SSLPeerUnverifiedException;
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
-import java.io.IOException;
 import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
 import java.net.URL;
-import java.security.cert.Certificate;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -27,7 +24,7 @@ public class HttpInvoker {
      */
     public static String sendPOST(String url, HashMap<String, String> map) throws Exception {
         URL obj = new URL(url);
-        HttpsURLConnection con = (HttpsURLConnection) obj.openConnection();
+        HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 
         //add reuqest header
         con.setRequestMethod("POST");
@@ -50,7 +47,7 @@ public class HttpInvoker {
         wr.flush();
         wr.close();
 
-        print_https_cert(con);
+        //print_https_cert(con);
 
         int responseCode = con.getResponseCode();
         System.out.println("\nSending 'POST' request to URL : " + url);
@@ -76,13 +73,13 @@ public class HttpInvoker {
 
     public static void sendGET(String url) throws Exception {
         URL obj = new URL(url);
-        HttpsURLConnection con = (HttpsURLConnection) obj.openConnection();
+        HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 
         con.setRequestMethod("GET");
 
         //add request header
         con.setRequestProperty("User-Agent", USER_AGENT);
-        print_https_cert(con);
+        //print_https_cert(con);
 
         int responseCode = con.getResponseCode();
         System.out.println("\nSending 'GET' request to URL : " + url);
@@ -102,7 +99,7 @@ public class HttpInvoker {
         System.out.println(response.toString());
     }
 
-
+/*
     private static void print_https_cert(HttpsURLConnection con){
 
         if(con!=null){
@@ -132,5 +129,5 @@ public class HttpInvoker {
 
         }
 
-    }
+    }*/
 }
