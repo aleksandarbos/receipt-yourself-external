@@ -35,8 +35,8 @@ public class BankRequest extends Controller {
         map.put("contactInfo", contactInfo);
 
         //HttpInvoker.sendGET("http://receipt-yourself.heroku.com/");
-	    //HttpInvoker.sendPOST("http://receipt-yourself.heroku.com/api/banks/receivedata", map);
-        HttpInvoker.sendPOST("http://localhost:3000/api/banks/receivedata", map);
+	HttpInvoker.sendPOST("http://receipt-yourself.heroku.com/api/banks/receivedata", map);
+        //HttpInvoker.sendPOST("http://localhost:3000/api/banks/receivedata", map);
     }
 
     public static void sendDailyRequestById(Long id) throws Exception {
@@ -51,7 +51,7 @@ public class BankRequest extends Controller {
         map.put("statementInfo", statementInfo);
         map.put("itemsInfo", itemsInfo);
 
-        //HttpInvoker.sendPOST("http://receipt-yourself.heroku.com/api/banks/receviedailystatement", map);
-        HttpInvoker.sendPOST("http://localhost:3000/api/banks/receviedailystatement", map);
+        HttpInvoker.sendPOST("http://receipt-yourself.heroku.com/api/banks/receviedailystatement", map);
+        //HttpInvoker.sendPOST("http://localhost:3000/api/banks/receviedailystatement", map);
     }
 }
