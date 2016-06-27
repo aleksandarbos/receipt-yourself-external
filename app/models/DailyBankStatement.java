@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * Created by aleksandar on 23.6.16..
  */
-@JsonIgnoreProperties({"persistent", "entityId"})
+@JsonIgnoreProperties({"id", "persistent", "entityId"})
 @Entity
 public class DailyBankStatement extends Model {
 
@@ -33,6 +33,7 @@ public class DailyBankStatement extends Model {
     @ManyToOne
     public CompanyAccount company_account;
 
+    @JsonIgnore
     @OneToMany
     public List<DailyBankStatementItem> daily_statements;
 

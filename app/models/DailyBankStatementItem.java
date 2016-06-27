@@ -11,7 +11,7 @@ import java.util.Date;
 /**
  * Created by aleksandar on 26.6.16..
  */
-@JsonIgnoreProperties({"persistent", "entityId"})
+@JsonIgnoreProperties({"id", "persistent", "entityId"})
 @Entity
 public class DailyBankStatementItem extends Model {
 

@@ -1,5 +1,6 @@
 package controllers;
 
+import javax.net.ssl.HttpsURLConnection;
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.InputStreamReader;
@@ -15,9 +16,16 @@ import static javax.ws.rs.core.HttpHeaders.USER_AGENT;
  */
 public class HttpInvoker {
 
-    public static void sendPOST(String url, HashMap<String, String> map) throws Exception {
+    /**
+     * Sends POST request with params to specific url.
+     * @param url Url that will be charged.
+     * @param map Map of param=val
+     * @return Remote server response.
+     * @throws Exception
+     */
+    public static String sendPOST(String url, HashMap<String, String> map) throws Exception {
         URL obj = new URL(url);
-        HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+        HttpsURLConnection con = (HttpsURLConnection) obj.openConnection();
 
         //add reuqest header
         con.setRequestMethod("POST");
@@ -40,6 +48,11 @@ public class HttpInvoker {
         wr.flush();
         wr.close();
 
+        int responseCode = con.getResponseCode();
+        System.out.println("\nSending 'POST' request to URL : " + url);
+        System.out.println("Post parameters : " + urlParameters);
+        System.out.println("Response Code : " + responseCode);
+
         BufferedReader in = new BufferedReader(
                 new InputStreamReader(con.getInputStream()));
         String inputLine;
@@ -52,6 +65,7 @@ public class HttpInvoker {
 
         //print result
         System.out.println(response.toString());
+        return response.toString();
 
     }
 

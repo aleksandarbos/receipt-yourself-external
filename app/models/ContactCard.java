@@ -15,7 +15,7 @@ import java.util.List;
 /**
  * Created by aleksandar on 20.6.16..
  */
-@JsonIgnoreProperties({"persistent", "entityId"})
+@JsonIgnoreProperties({"id", "persistent", "entityId"})
 @Entity
 public class ContactCard extends Model {
 
@@ -27,6 +27,10 @@ public class ContactCard extends Model {
     @JsonIgnore
     @OneToMany
     public List<BusinessPartner> business_partner;
+
+    @JsonIgnore
+    @OneToMany
+    public List<Company> companies;
 
     @JsonIgnore
     @OneToMany
@@ -54,6 +58,6 @@ public class ContactCard extends Model {
     public String website;
 
     public String toString() {
-        return "CC-" + ((!business_partner.isEmpty()) ? "BP: " + business_partner.get(0).name : "BA: " + bank.get(0).name);
+        return "CC-" + ((business_partner!= null && !business_partner.isEmpty()) ? "BP: " + business_partner.get(0).name : "BA: " + bank.get(0).name);
     }
 }
