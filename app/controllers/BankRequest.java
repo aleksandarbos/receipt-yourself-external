@@ -33,7 +33,7 @@ public class BankRequest extends Controller {
         map.put("contactInfo", contactInfo);
 
         //HttpInvoker.sendGET("http://receipt-yourself.heroku.com/");
-	    String response = HttpInvoker.sendPOST("http://receipt-yourself.heroku.com/api/banks/receivedata", map);
+	    String response = HttpInvoker.sendPOST("https://receipt-yourself.heroku.com/api/banks/receivedata", map);
         //String response = HttpInvoker.sendPOST("http://localhost:3000/api/banks/receivedata", map);
         renderHtml(response);
     }
@@ -50,7 +50,7 @@ public class BankRequest extends Controller {
         map.put("statementInfo", statementInfo);
         map.put("itemsInfo", itemsInfo);
 
-        String response = HttpInvoker.sendPOST("http://receipt-yourself.heroku.com/api/banks/receviedailystatement", map);
+        String response = HttpInvoker.sendPOST("https://receipt-yourself.heroku.com/api/banks/receviedailystatement", map);
         //String response = HttpInvoker.sendPOST("http://localhost:3000/api/banks/receviedailystatement", map);
         renderHtml(response);
     }

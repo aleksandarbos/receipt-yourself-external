@@ -45,7 +45,7 @@ public class BusinessRequest extends Controller {
 
         map.put("invoiceInfo", basicInfo);
 
-        String response = HttpInvoker.sendPOST("http://receipt-yourself.heroku.com/api/businesspartners/receivedata", map);
+        String response = HttpInvoker.sendPOST("https://receipt-yourself.heroku.com/api/businesspartners/receivedata", map);
         //String response = HttpInvoker.sendPOST("http://localhost:3000/api/businesspartners/acceptinvoice", map);
         renderHtml(response);
     }
