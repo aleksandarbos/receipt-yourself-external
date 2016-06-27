@@ -1,11 +1,13 @@
 package controllers;
 
 import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLPeerUnverifiedException;
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
+import java.io.IOException;
 import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
 import java.net.URL;
+import java.security.cert.Certificate;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -48,6 +50,8 @@ public class HttpInvoker {
         wr.flush();
         wr.close();
 
+        print_https_cert(con);
+
         int responseCode = con.getResponseCode();
         System.out.println("\nSending 'POST' request to URL : " + url);
         System.out.println("Post parameters : " + urlParameters);
@@ -72,12 +76,13 @@ public class HttpInvoker {
 
     public static void sendGET(String url) throws Exception {
         URL obj = new URL(url);
-        HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+        HttpsURLConnection con = (HttpsURLConnection) obj.openConnection();
 
         con.setRequestMethod("GET");
 
         //add request header
         con.setRequestProperty("User-Agent", USER_AGENT);
+        print_https_cert(con);
 
         int responseCode = con.getResponseCode();
         System.out.println("\nSending 'GET' request to URL : " + url);
@@ -95,5 +100,37 @@ public class HttpInvoker {
 
         //print result
         System.out.println(response.toString());
+    }
+
+
+    private static void print_https_cert(HttpsURLConnection con){
+
+        if(con!=null){
+
+            try {
+
+                System.out.println("Response Code : " + con.getResponseCode());
+                System.out.println("Cipher Suite : " + con.getCipherSuite());
+                System.out.println("\n");
+
+                Certificate[] certs = con.getServerCertificates();
+                for(Certificate cert : certs){
+                    System.out.println("Cert Type : " + cert.getType());
+                    System.out.println("Cert Hash Code : " + cert.hashCode());
+                    System.out.println("Cert Public Key Algorithm : "
+                            + cert.getPublicKey().getAlgorithm());
+                    System.out.println("Cert Public Key Format : "
+                            + cert.getPublicKey().getFormat());
+                    System.out.println("\n");
+                }
+
+            } catch (SSLPeerUnverifiedException e) {
+                e.printStackTrace();
+            } catch (IOException e){
+                e.printStackTrace();
+            }
+
+        }
+
     }
 }
