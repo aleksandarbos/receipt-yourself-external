@@ -40,7 +40,6 @@ public class DailyBankStatementItem extends Model {
     @ManyToOne
     public DailyBankStatement daily_bank_statement;
 
-    @JsonIgnore
     @ManyToOne
     public BusinessPartner business_partner;
 

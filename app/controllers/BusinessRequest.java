@@ -41,9 +41,10 @@ public class BusinessRequest extends Controller {
         ObjectMapper om = new ObjectMapper();
 
         String basicInfo = om.writeValueAsString(invoice);
-        String contactInfo = om.writeValueAsString(invoice.businessPartner);
+        String businessPartnerInfo = om.writeValueAsString(invoice.businessPartner);
 
         map.put("invoiceInfo", basicInfo);
+        map.put("businessPartnerInfo", businessPartnerInfo);
 
         //String response = HttpInvoker.sendPOST("https://receipt-yourself.heroku.com/api/businesspartners/receivedata", map);
         String response = HttpInvoker.sendPOST("http://localhost:3000/api/businesspartners/acceptinvoice", map);
