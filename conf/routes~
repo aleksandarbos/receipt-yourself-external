@@ -14,7 +14,5 @@ GET     /admin                                  module:crud
 # Map static resources from the /app/public folder to the /public path
 GET     /public/                                staticDir:public
 
-GET	/.well-known/acme-challenge/{id}	Application.verify
-
 # Catch all
 GET     /api/{controller}/{action}                  {controller}.{action}
