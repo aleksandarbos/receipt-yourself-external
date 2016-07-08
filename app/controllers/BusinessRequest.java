@@ -30,8 +30,8 @@ public class BusinessRequest extends Controller {
         map.put("basicInfo", basicInfo);
         map.put("contactInfo", contactInfo);
 
-        //String response = HttpInvoker.sendPOST("https://receipt-yourself.heroku.com/api/businesspartners/receivedata", map);
-        String response = HttpInvoker.sendPOST("http://localhost:3000/api/businesspartners/receivedata", map);
+        String response = HttpInvoker.sendPOST("https://receipt-yourself.heroku.com/api/businesspartners/receivedata", map);
+        //String response = HttpInvoker.sendPOST("http://localhost:3000/api/businesspartners/receivedata", map);
         renderHtml(response);
     }
 
@@ -46,8 +46,8 @@ public class BusinessRequest extends Controller {
         map.put("invoiceInfo", basicInfo);
         map.put("businessPartnerInfo", businessPartnerInfo);
 
-        //String response = HttpInvoker.sendPOST("https://receipt-yourself.heroku.com/api/businesspartners/receivedata", map);
-        String response = HttpInvoker.sendPOST("http://localhost:3000/api/businesspartners/acceptinvoice", map);
+        String response = HttpInvoker.sendPOST("https://receipt-yourself.heroku.com/api/businesspartners/receivedata", map);
+        //String response = HttpInvoker.sendPOST("http://localhost:3000/api/businesspartners/acceptinvoice", map);
         renderHtml(response);
     }
 
